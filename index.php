@@ -66,7 +66,7 @@
 	 <!--FOOTER-->
 	 <footer class="container-fluid text-center"> 
 		<div class="col-lg-8">
-			<marquee direction="right">Copy Right @Wilveywhye@gmail.com</marquee></div>
+			<marquee direction="right">@Copy.2019 SMK Bina Mandiri Purwareja Klampok</marquee></div>
 		<div class="col-lg-4">
 		<div class="row">
 			<div class="col-md-4">

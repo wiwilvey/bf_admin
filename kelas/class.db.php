@@ -33,7 +33,7 @@
       // pola sintaks mysql insert
       // INSERT INTO nama tabel (kolom-kolom) VALUES ('data','data');
       $sql = "INSERT INTO $tabel ($kolom) VALUES ($data)";
-
+	  
       // cek query
       if ($conn->query($sql) === TRUE) {
 
@@ -57,7 +57,7 @@
       // pola sintaks mysql select
       // anggap sekali baca dibatasi 40 baris. ganti bila perlu.
       $sql = "SELECT $kolom FROM $tabel WHERE $kondisi ORDER BY $urut LIMIT $baris, 40";
-
+	  // echo $sql;
       // eksekusi query
       $res = $conn->query($sql);
 
