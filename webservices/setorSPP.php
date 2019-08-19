@@ -22,7 +22,12 @@ require "../kelas/class.db.php";
 $spp = new db();
 $tabel = 'tbpemasukan';
 $kolom = 'NIS,TANGGAL,KODE_POST,JUMLAH,KASIR,BERITA';
-$berita= "Pemayaran SPP ".$_POST['dbln']." hingga ".$_POST['sbln'];
+$berita= "Pembayaran SPP " . ymd2dmy($_POST['dbln'])." hingga ". ymd2dmy($_POST['sbln']);
 $data  = "'{$_POST['nis']}','{$_POST['tgl']}','M01','{$_POST['jml']}','Wiwi','{$berita}'";
 
 $spp->simpan($tabel,$kolom,$data);
+
+function ymd2dmy($tgl){
+    list($th,$bl,$hr) = explode("-",$tgl);
+    return "$hr-$bl-$th";
+}

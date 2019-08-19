@@ -22,7 +22,7 @@ require "../kelas/class.db.php";
 $spp = new db();
 $tabel = 'tbpemasukan';
 $kolom = 'NIS,TANGGAL,KODE_POST,JUMLAH,KASIR,BERITA';
-$berita= "Pemayaran Daftar Ulang";
+$berita= "Pembayaran Daftar Ulang";
 $data  = "'{$_POST['nis']}','{$_POST['tgl']}','M02','{$_POST['jml']}','Wiwi','{$berita}'";
 
 $spp->simpan($tabel,$kolom,$data);

@@ -57,7 +57,7 @@
       // pola sintaks mysql select
       // anggap sekali baca dibatasi 40 baris. ganti bila perlu.
       $sql = "SELECT $kolom FROM $tabel WHERE $kondisi ORDER BY $urut LIMIT $baris, 40";
-	  // echo $sql;
+	    // echo $sql;
       // eksekusi query
       $res = $conn->query($sql);
 
