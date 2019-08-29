@@ -75,7 +75,7 @@
           }
           return $output;
       } else {
-          echo "Tidak ada hasil <br />";
+          return "Tidak ada hasil";
       }
 
       // tutup koneksi

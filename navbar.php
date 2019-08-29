@@ -14,7 +14,8 @@
 			<a class="dropdown-item" href="#">Admin</a><br>
 			<a class="dropdown-item" href="./?page=indexWalikelas&p=1">Wali Kelas</a><br>
 			<a class="dropdown-item" href="./?page=indexKodebyr&p=1">Kode Pembayaran</a><br>
-			<a class="dropdown-item" href="./?page=index-pa&p=1">Post Anggaran</a>
+			<a class="dropdown-item" href="./?page=index-pa&p=1">Post Anggaran</a><br>
+			<a class="dropdown-item" href="./?page=user&p=1">Pengguna</a>
 		  </div>
 			</li>
     

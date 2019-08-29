@@ -1,5 +1,5 @@
 <?php
-	error_reporting(0);
+	//error_reporting(0);
 	if($_GET['page'] == false || $_GET['page'] == ''){
 		header("Location: ./?page=halaman1");
 	}
@@ -39,8 +39,8 @@
   </style>
    <body>
 <?php 	
-	require('./kelas/class.db.php');
-	$cit = new db();
+	// require('./kelas/class.db.php');
+	// $cit = new db();
 ?>
 	<div class="container">
 	<!--HEADER-->
@@ -66,7 +66,7 @@
 	 <!--FOOTER-->
 	 <footer class="container-fluid text-center"> 
 		<div class="col-lg-8">
-			<marquee direction="right">@Copy.2019 SMK Bina Mandiri Purwareja Klampok</marquee></div>
+			@Copy.2019 SMK Bina Mandiri Purwareja Klampok</marquee></div>
 		<div class="col-lg-4">
 		<div class="row">
 			<div class="col-md-4">

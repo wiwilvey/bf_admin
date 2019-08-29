@@ -10,5 +10,6 @@
 		case 'formulir-siswa' : include("siswa/formulir-siswa.php"); break;
 		case 'fwk' : include("waliKelas/formulirWakel.php"); break;
 		case 'halaman5' : include("halaman5.php"); break;
+		case 'user' : include("user/index.php"); break;
 	}
 ?>
