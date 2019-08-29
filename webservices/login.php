@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin:*");
 require("../kelas/class.user.php");
 $user = new user();
 $datauser = $user->login($_POST['uname'],$_POST['upass']);
