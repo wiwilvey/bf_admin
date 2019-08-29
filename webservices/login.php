@@ -1,7 +1,7 @@
 <?php
 require("../kelas/class.user.php");
 $user = new user();
-$datauser = $user->login($_GET['u'],$_GET['p']);
+$datauser = $user->login($_POST['uname'],$_POST['upass']);
 if($datauser==='Tidak ada hasil'){
     $result = ['sukses'=>0,'data'=>NULL];
 }else{
