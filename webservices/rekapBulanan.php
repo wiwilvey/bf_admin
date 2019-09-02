@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-
+error_reporting(E_ALL & ~E_NOTICE);
 require "../kelas/class.db.php";
 $rekap = new db();
 IF($_GET['kelas']==''){
@@ -59,7 +59,8 @@ if( $_GET['pos'] == 'keluar'){
     }else{
         $kobi = $_GET['kb'];
     }
-    $sql1 = "SELECT BULAN,v_keluar.KODE_BIAYA,NAMA_POSTING, JUMLAH FROM `v_keluar` , `tbpostanggaran` WHERE KODE_BIAYA LIKE '$kobi' && `tbpostanggaran`.`KODE_BIAYA` = `v_keluar`.`KODE_BIAYA`GROUP BY BULAN , `v_keluar`.`KODE_BIAYA`";
+    $sql1 = "SELECT BULAN,v_keluar.KODE_BIAYA,NAMA_POSTING, JUMLAH FROM `v_keluar` , `tbpostanggaran` WHERE tbpostanggaran.KODE_BIAYA LIKE '$kobi' && `tbpostanggaran`.`KODE_BIAYA` = `v_keluar`.`KODE_BIAYA`GROUP BY BULAN , `v_keluar`.`KODE_BIAYA`";
+    
     $qry1 = $conn->query($sql1);
     $rebul = [];
     while($res1 = $qry1->fetch_assoc()){
