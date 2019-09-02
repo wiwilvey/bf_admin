@@ -12,8 +12,8 @@
 
 <div class="container"-->
 	<?php 	
-		//require('../kelas/class.db.php');
-		//$cit = new db();
+		require('./kelas/class.db.php');
+		$cit = new db();
 	?>
 	<h1>DAFTAR SISWA SMK BINA MANDIRI PURWAREJA KLAMPOK</h1>
 	<!--<a class="btn btn-primary" href="formulir-siswa.php?modus=input" >Tambah Siswa</a>
