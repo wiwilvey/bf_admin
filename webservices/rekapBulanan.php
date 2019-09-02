@@ -54,7 +54,12 @@ if( $_GET['pos'] == 'du'){
 }
 
 if( $_GET['pos'] == 'keluar'){
-    $sql1 = "SELECT BULAN,v_keluar.KODE_BIAYA,NAMA_POSTING, JUMLAH FROM `v_keluar` , `tbpostanggaran` WHERE `tbpostanggaran`.`KODE_BIAYA` = `v_keluar`.`KODE_BIAYA`GROUP BY BULAN , `v_keluar`.`KODE_BIAYA`";
+    if($_GET['kb']==''){
+        $kobi = '%';
+    }else{
+        $kobi = $_GET['kb']
+    }
+    $sql1 = "SELECT BULAN,v_keluar.KODE_BIAYA,NAMA_POSTING, JUMLAH FROM `v_keluar` , `tbpostanggaran` WHERE KODE_BIAYA LIKE '$kobi' && `tbpostanggaran`.`KODE_BIAYA` = `v_keluar`.`KODE_BIAYA`GROUP BY BULAN , `v_keluar`.`KODE_BIAYA`";
     $qry1 = $conn->query($sql1);
     $rebul = [];
     while($res1 = $qry1->fetch_assoc()){
