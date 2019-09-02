@@ -57,7 +57,7 @@ if( $_GET['pos'] == 'keluar'){
     if($_GET['kb']==''){
         $kobi = '%';
     }else{
-        $kobi = $_GET['kb']
+        $kobi = $_GET['kb'];
     }
     $sql1 = "SELECT BULAN,v_keluar.KODE_BIAYA,NAMA_POSTING, JUMLAH FROM `v_keluar` , `tbpostanggaran` WHERE KODE_BIAYA LIKE '$kobi' && `tbpostanggaran`.`KODE_BIAYA` = `v_keluar`.`KODE_BIAYA`GROUP BY BULAN , `v_keluar`.`KODE_BIAYA`";
     $qry1 = $conn->query($sql1);
