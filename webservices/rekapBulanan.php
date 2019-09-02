@@ -3,7 +3,11 @@ header("Access-Control-Allow-Origin: *");
 
 require "../kelas/class.db.php";
 $rekap = new db();
-
+IF($_GET['kelas']==''){
+    $kelas = 'X PKM';
+}else{
+    $kelas = str_replace("-"," ",$_GET['kelas']);
+}
 $conn = $rekap->koneksi();
 if( $_GET['pos'] == 'spp'){
     $sql1 = "SELECT LEFT(`TANGGAL`,7) BULAN ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` GROUP BY LEFT(TANGGAL,7)";
@@ -13,7 +17,7 @@ if( $_GET['pos'] == 'spp'){
         array_push($rebul,$res1);
     }
     
-    $sql2 = "SELECT LEFT(`TANGGAL`,7) BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` GROUP BY KELAS , LEFT(TANGGAL,7) ORDER BY KELAS, LEFT(TANGGAL,7)";
+    $sql2 = "SELECT LEFT(`TANGGAL`,7) BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` WHERE KELAS = '$kelas' GROUP BY  LEFT(TANGGAL,7) ORDER BY KELAS, LEFT(TANGGAL,7)";
     $qry2 = $conn->query($sql2);
     $rekel = [];
     while($res2 = $qry2->fetch_assoc()){
