@@ -17,7 +17,7 @@ if( $_GET['pos'] == 'spp'){
         array_push($rebul,$res1);
     }
     
-    $sql2 = "SELECT LEFT(`TANGGAL`,7) BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` WHERE KELAS = '$kelas' GROUP BY  LEFT(TANGGAL,7) ORDER BY KELAS, LEFT(TANGGAL,7)";
+    $sql2 = "SELECT LEFT(`TANGGAL`,7) BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` WHERE KELAS = '$kelas' GROUP BY  LEFT(TANGGAL,7) ORDER BY LEFT(TANGGAL,7)";
     $qry2 = $conn->query($sql2);
     $rekel = [];
     while($res2 = $qry2->fetch_assoc()){
@@ -39,7 +39,7 @@ if( $_GET['pos'] == 'du'){
         array_push($rebul,$res1);
     }
     
-    $sql2 = "SELECT LEFT(`TANGGAL`,7) BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_du` GROUP BY KELAS , LEFT(TANGGAL,7) ORDER BY KELAS, LEFT(TANGGAL,7)";
+    $sql2 = "SELECT LEFT(`TANGGAL`,7) BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_du` WHERE KELAS = '$kelas' GROUP BY  LEFT(TANGGAL,7) ORDER BY  LEFT(TANGGAL,7)";
     $qry2 = $conn->query($sql2);
     $rekel = [];
     while($res2 = $qry2->fetch_assoc()){
