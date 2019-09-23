@@ -64,6 +64,9 @@ if( $_GET['pos'] == 'keluar'){
     $qry1 = $conn->query($sql1);
     $rebul = [];
     while($res1 = $qry1->fetch_assoc()){
+        list($t,$b) = explode("-",$res1['BULAN']);
+        $bulan = "$b-$t";
+        $res1['BULAN']=$bulan;
         array_push($rebul,$res1);
     }
     
