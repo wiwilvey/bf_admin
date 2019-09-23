@@ -10,14 +10,14 @@ IF($_GET['kelas']==''){
 }
 $conn = $rekap->koneksi();
 if( $_GET['pos'] == 'spp'){
-    $sql1 = "SELECT LEFT(`TANGGAL`,7) BULAN ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` GROUP BY LEFT(TANGGAL,7)";
+    $sql1 = "SELECT DATE_FORMAT(`TANGGAL`,'%m-%Y') BULAN ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` GROUP BY LEFT(TANGGAL,7)";
     $qry1 = $conn->query($sql1);
     $rebul = [];
     while($res1 = $qry1->fetch_assoc()){
         array_push($rebul,$res1);
     }
     
-    $sql2 = "SELECT LEFT(`TANGGAL`,7) BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` WHERE KELAS = '$kelas' GROUP BY  LEFT(TANGGAL,7) ORDER BY LEFT(TANGGAL,7)";
+    $sql2 = "SELECT DATE_FORMAT(`TANGGAL`,'%m-%Y') BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_spp` WHERE KELAS = '$kelas' GROUP BY  LEFT(TANGGAL,7) ORDER BY LEFT(TANGGAL,7)";
     $qry2 = $conn->query($sql2);
     $rekel = [];
     while($res2 = $qry2->fetch_assoc()){
@@ -32,14 +32,14 @@ if( $_GET['pos'] == 'spp'){
 }
 
 if( $_GET['pos'] == 'du'){
-    $sql1 = "SELECT LEFT(`TANGGAL`,7) BULAN ,SUM(`JUMLAH`) JUMLAH FROM `v_du` GROUP BY LEFT(TANGGAL,7)";
+    $sql1 = "SELECT DATE_FORMAT(`TANGGAL`,'%m-%Y') BULAN ,SUM(`JUMLAH`) JUMLAH FROM `v_du` GROUP BY LEFT(TANGGAL,7)";
     $qry1 = $conn->query($sql1);
     $rebul = [];
     while($res1 = $qry1->fetch_assoc()){
         array_push($rebul,$res1);
     }
     
-    $sql2 = "SELECT LEFT(`TANGGAL`,7) BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_du` WHERE KELAS = '$kelas' GROUP BY  LEFT(TANGGAL,7) ORDER BY  LEFT(TANGGAL,7)";
+    $sql2 = "SELECT DATE_FORMAT(`TANGGAL`,'%m-%Y') BULAN, `KELAS` ,SUM(`JUMLAH`) JUMLAH FROM `v_du` WHERE KELAS = '$kelas' GROUP BY  LEFT(TANGGAL,7) ORDER BY  LEFT(TANGGAL,7)";
     $qry2 = $conn->query($sql2);
     $rekel = [];
     while($res2 = $qry2->fetch_assoc()){

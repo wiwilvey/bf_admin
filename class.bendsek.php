@@ -11,7 +11,7 @@
 		}
 		
 	function tampilData($urut,$baris,$kondisi=1){
-		$data = $this->tampil(*,"tabel1",$kondisi,$urut,$baris);
+		$data = $this->tampil("*","tabel1",$kondisi,$urut,$baris);
 		return $data;
 	}
 	

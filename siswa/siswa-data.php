@@ -4,10 +4,10 @@ $ks = new db();
 
 if($_GET['kelas']){
 	$kelas = $_GET['kelas'];
-	$siswa = $ks->tampil"*","siswa","kelas='$kelas'","nama",0);
+	$siswa = $ks->tampil("*","siswa","kelas='$kelas'","nama",0);
 //echo json_encode($siswa);
 }else{
-	$siswa = $ks->tampil"*","siswa","kelas="1","nama",0);	
+	$siswa = $ks->tampil("*","siswa","kelas=1","nama",0);	
 //echo json_encode($siswa);
 }
 for($i = 0 ; $i < COUNT($siswa) ; $i++){
