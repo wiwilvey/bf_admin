@@ -5,8 +5,9 @@ require "../kelas/class.db.php";
 $bayar = new db();
 
 $conn = $bayar->koneksi();
-
-$sql = "SELECT DATE_FORMAT(TANGGAL,'%d-%m-%Y') TANGGAL,`PENERIMA`,`JUMLAH`,`BERITA` FROM `tbpengeluaran` WHERE KODE_BIAYA='{$_GET['kb']}' && TANGGAL LIKE '{$_GET['bl']}%'";
+list($b,$t)=explode("-",$_GET['bl']);
+$bulan = "$t-$b";
+$sql = "SELECT DATE_FORMAT(TANGGAL,'%d-%m-%Y') TANGGAL,`PENERIMA`,`JUMLAH`,`BERITA` FROM `tbpengeluaran` WHERE KODE_BIAYA='{$_GET['kb']}' && TANGGAL LIKE '{$bulan}%'";
 
 $qry = $conn->query($sql);
 $data = [];
