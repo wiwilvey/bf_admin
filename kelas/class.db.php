@@ -4,11 +4,10 @@
   class db
   {
     // set properti host, user, password dan nama database
-    public $db_host = "localhost";      // sesuaikan dengan konfigurasi
-    public $db_user = "root";     // sesuaikan dengan konfigurasi
-    public $db_pass = "";   // sesuaikan dengan konfigurasi
-    public $db_name = "appkeuangan";      // sesuaikan dengan konfigurasi
-
+    public $db_host = "localhost";               // sesuaikan dengan konfigurasi
+    public $db_user = "klubaner_tututdp";        // sesuaikan dengan konfigurasi
+    public $db_pass = "*Mandiri1";               // sesuaikan dengan konfigurasi
+    public $db_name = "klubaner_bimafunds";      // sesuaikan dengan konfigurasi
     // method untuk koneksi
     function koneksi(){
       // buat connection
