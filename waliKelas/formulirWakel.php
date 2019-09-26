@@ -1,29 +1,20 @@
 <!-- FORM WALI KELAS -->
 <?php
+require('./kelas/class.waliKelas.php');
+$wk = new waliKelas();
 
 if($_GET['modus'] == "input" ){
-	echo "Modus input data";
 	$NIG = "";
 	$NAMA_GURU  = "";
 	$KELAS  = "";
 	$modus = "simpan";
 }else{
-	//require('./kelas/class.db.php');
-	//$cit = new db();
 	$id  = $_GET['id'];
 	
-	// fungsi tampil($kolom,$tabel,$kondisi,$urut,$baris)
-	//$data = $cit->tampil("*","walikelas","KODE_GURU = '$id'","KODE_GURU",0);
-	$data = $cit->tampil("walikelas.*,guru.NAMA,kelas.NAMA_KELAS","walikelas,guru,kelas",
-				"kelas.KODE_KELAS=walikelas.KODE_KELAS && 
-				guru.NIG=walikelas.KODE_GURU && walikelas.KODE_GURU='{$id}'",'KODE_GURU',0);
-	
-	// print_r($data);
-	// Array ( [0] => Array ( [TAHUN_AJARAN] => 2018-2019 [KODE_KELAS] => T3 [KODE_GURU] => gr010 ) ) 
-	
-	$NIG = $data[0]['KODE_GURU'];
-	$NAMA_GURU  = $data[0]['NAMA'];
-	$KELAS  = $data[0]['KODE_KELAS'];
+	$data = $wk->pilih($id);
+	$NIG = $data['NIG'];
+	$NAMA_GURU  = $data['NAMA'];
+	$KELAS  = $data['KODE_KELAS'];
 	$modus = "update";
 }
 
@@ -50,7 +41,7 @@ if($_GET['modus'] == "input" ){
 		value="<?php echo $KELAS; ?>" /-->
 		<select class="form-control" name="KELAS" >
 		<?php
-		$kelas=$cit->tampil("*","kelas",1,"NAMA_KELAS",0);
+		$kelas=$wk->tampil("*","kelas",1,"NAMA_KELAS",0);
 		//print_r($kelas);
 		for($i=0;$i<count($kelas);$i++){
 			echo "<option value=".$kelas[$i]['KODE_KELAS'].">".$kelas[$i]['NAMA_KELAS']."</option>";

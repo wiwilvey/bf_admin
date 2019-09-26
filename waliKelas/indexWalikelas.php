@@ -12,13 +12,9 @@
 
 <div class="container"> 
 -->
-	<?php 	
-		//require('../kelas/class.db.php');
-		//$cit = new db();
-	?>
+	
 	<h1>TABEL WALI KELAS</h1>
-	<!--
-	<a class="btn btn-primary" href="formulirWakel.php?modus=input">Tambah Wali Kelas</a> -->
+	<a class="btn btn-primary" href="./?page=fwk&&modus=input">Tambah Wali Kelas</a>
 	<table class="table">
 		<thead>
 			<tr>
@@ -29,23 +25,7 @@
 			</tr>
 		</thead>
 		<tbody id="dftwk">
-		<!--?php
-		$walikelas = $cit->tampil("*","walikelas",1,'NIG',0);
-		for($i = 0 ; $i < COUNT($walikelas) ; $i++ ){
-			echo
-			"
-				<tr>
-					<td>".$walikelas[$i]['NIG']."</td>
-					<td>".$walikelas[$i]['NAMA_GURU']."</td>
-					<td>".$walikelas[$i]['KELAS']."</td>
-					<td>
-						<a href='formulirWakel.php?modus=update&id=".$walikelas[$i]['NIG']."'>Edit</a>
-						<a href='./waliKelas/hapus.php?id=".$walikelas[$i]['NIG']."'>Hapus</a>
-					</td>
-				</tr>
-			";
-		}
-		?-->
+		
 		</tbody>
 	</table>
 </div>
@@ -56,11 +36,11 @@ $(document).ready(function(){
 		$.each(wk,function(i,data){
 			$("#dftwk").append(
 			"<tr>"+
-			"<td>"+data.KODE_GURU+"</td>"+
+			"<td>"+data.NIG+"</td>"+
 			"<td>"+data.NAMA+"</td>"+
 			"<td>"+data.NAMA_KELAS+"</td>"+
 			"<td>"+
-			"<a href='./?page=fwk&modus=update&id="+data.KODE_GURU+"'>edit</a> hapus</td>"+
+			"<a href='./?page=fwk&modus=update&id="+data.NIG+"'>edit</a> hapus</td>"+
 			"</tr>"
 			);
 		});
